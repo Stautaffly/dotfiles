@@ -1,0 +1,88 @@
+return {
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    opts = {
+      heading = {
+        enabled = true,
+        sign = true,
+        position = "overlay",
+        icons = { "# ", "## ", "### ", "#### ", "##### ", "###### " },
+        signs = { "󰉫 ", "󰉬 ", "󰉭 ", "󰉮 ", "󰉯 ", "󰉰 " },
+        width = "full",
+        left_margin = 0,
+        left_pad = 0,
+        right_pad = 0,
+        min_width = 0,
+        border = false,
+        border_prefix = false,
+        above = "▄",
+        below = "▀",
+        backgrounds = {
+          "RenderMarkdownH1Bg",
+          "RenderMarkdownH2Bg",
+          "RenderMarkdownH3Bg",
+          "RenderMarkdownH4Bg",
+          "RenderMarkdownH5Bg",
+          "RenderMarkdownH6Bg",
+        },
+        foregrounds = {
+          "RenderMarkdownH1",
+          "RenderMarkdownH2",
+          "RenderMarkdownH3",
+          "RenderMarkdownH4",
+          "RenderMarkdownH5",
+          "RenderMarkdownH6",
+        },
+      },
+      code = {
+        enabled = true,
+        sign = true,
+        style = "full",
+        position = "left",
+        language_pad = 0,
+        disable_background = { "diff" },
+        width = "full",
+        left_margin = 0,
+        left_pad = 0,
+        right_pad = 0,
+        min_width = 0,
+        border = "thin",
+        above = "▄",
+        below = "▀",
+        highlight = "RenderMarkdownCode",
+        highlight_inline = "RenderMarkdownCodeInline",
+      },
+      dash = {
+        enabled = true,
+        icon = "─",
+        width = "full",
+        highlight = "RenderMarkdownDash",
+      },
+      bullet = {
+        enabled = true,
+        icons = { "●", "○", "◆", "◇" },
+        left_pad = 0,
+        highlight = "RenderMarkdownBullet",
+      },
+      checkbox = {
+        enabled = true,
+        unchecked = {
+          icon = "󰄱 ",
+          highlight = "RenderMarkdownUnchecked",
+        },
+        checked = {
+          icon = "󰱒 ",
+          highlight = "RenderMarkdownChecked",
+        },
+        custom = {
+          todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo" },
+        },
+      },
+    },
+    ft = { "markdown", "norg", "rmd", "org" },
+    config = function(_, opts)
+      require("render-markdown").setup(opts)
+    end,
+  },
+}
